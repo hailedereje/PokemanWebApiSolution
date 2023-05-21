@@ -13,6 +13,7 @@ namespace PokemanWebApi.Repository
             _context = context;
         }
 
+
         public Pokeman? GetPokeman(int id)
         {
             var pokeman = _context.Pokemans.FirstOrDefault(p => p.Id == id);
@@ -30,10 +31,25 @@ namespace PokemanWebApi.Repository
             return _context.Pokemans.ToList();
         }
 
+        //public ICollection<Review> GetReviews(int pokemanId)
+        //{
+        //    var reviews = _context.Pokemans.Where(u => u.Id == pokemanId).Select(u => u.Reviews);
+        //    return reviews;
+        //}
+
         public bool PokemanExists(int id)
         {
             var exists = _context.Pokemans.Any(p => p.Id == id);
             return exists;
+        }
+
+        public bool CreatePokeman(Pokeman pokeman, int ownerId, int catagoryId)
+        {
+            return true;
+        }
+        public bool Save()
+        {
+            throw new NotImplementedException();
         }
     }
 }

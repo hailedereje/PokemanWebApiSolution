@@ -1,0 +1,41 @@
+PUT   http://localhost:5171/api/catagories/Update/4
+Content-Type: application/json
+
+{
+    "id":4,
+    "name": "aqua man"
+}
+
+###
+GET http://localhost:5171/api/catagories
+
+###
+GET http://localhost:5171/api/owners
+
+###
+POST  http://localhost:5171/api/owners
+Content-Type: application/json
+
+{
+    "name":"solomon-user",
+    "gym":"sport club gym",
+    "country":{
+        "name":"USA"
+    }
+}
+###
+GET http://localhost:5171/api/owners
+
+###
+POST http://localhost:5171/api/countries
+
+Content-Type: application/json
+{
+    "name": "Canada",
+    "owners" :[
+        {
+            "name" : "Haile",
+            "gym": "sport club gym"
+        }
+    ]
+}

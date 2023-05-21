@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using PokemanWebApi.DTO;
 using PokemanWebApi.Interfaces;
 using PokemanWebApi.Model;
 
@@ -9,16 +11,20 @@ namespace PokemanWebApi.Controllers
     public class PokemanController : ControllerBase
     {
         private readonly IPokeman _pokeman;
-        public PokemanController(IPokeman pokeman)
+        private readonly IMapper _mapper;
+        public PokemanController(IPokeman pokeman,IMapper mapper)
         {
             _pokeman = pokeman;
+            _mapper = mapper;
+
         }
 
         [HttpGet]
         [ProducesResponseType(200)]
         public IActionResult GetPokemans()
         {
-            var pokemans = _pokeman.GetPokemans();
+            var pokemans = _mapper.Map<List<PokemanDTO>>(_pokeman.GetPokemans());
+            // pokemans = _pokeman.GetPokemans();
             return Ok(pokemans);
         }
 
@@ -30,7 +36,8 @@ namespace PokemanWebApi.Controllers
             {
                 return NotFound();
             }
-            var pokeman = _pokeman.GetPokeman(id);
+            var pokeman = _mapper.Map<PokemanDTO>(_pokeman.GetPokeman(id));
+            //var pokeman = _pokeman.GetPokeman(id);
             return Ok(pokeman);
         }
     }
