@@ -1,6 +1,6 @@
 ﻿namespace PokemanWebApi.DTO
 {
-    public class PokemanDTO
+    public class CatagoryDTO
     {
         
         public string Name { get; set; } = null!;

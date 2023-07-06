@@ -3,10 +3,10 @@
     public class Pokeman
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public ICollection<Review> Reviews { get; set; }
-        public ICollection<PokemanCatagory> PokemanCatagories { get; set; }
-        public ICollection<PokemanOwner> PokemanOwners { get; set; }
+        public string Name { get; set; } = null!;
+        public ICollection<Review> Reviews { get; set; } = null!;
+        public ICollection<PokemanCatagory> PokemanCatagories { get; set; } = null!;
+        public ICollection<PokemanOwner> PokemanOwners { get; set; } = null!;
        
     }
 }
